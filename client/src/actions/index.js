@@ -22,7 +22,7 @@ export const saveArticle = (article) => async dispatch => {
 
 export const fetchNewsArticles = () => async dispatch => {
     try {
-        const res = await axios.get('http://newsapi.org/v2/everything?q=bitcoin&apiKey=c8840f169ec844549128b2271e4674d3');
+        const res = await axios.get('https://newsapi.org/v2/everything?q=bitcoin&apiKey=c8840f169ec844549128b2271e4674d3');
         dispatch({ type: 'FETCH_ARTICLES', payload: res.data.articles});
 
     } catch (error) {
