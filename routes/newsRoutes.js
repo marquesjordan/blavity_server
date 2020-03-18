@@ -1,6 +1,11 @@
 const News = mongoose.model('news');
 
 module.exports = app => {
+
+    app.get('/', function (req, res) {
+        res.send('hello world')
+      })
+      
     app.get('/api/groups', async (req, res) => {
         const savedGroups = await News.find({})
     

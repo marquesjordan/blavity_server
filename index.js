@@ -10,6 +10,7 @@ mongoose.connect('mongodb://mblavity:blav1234@ds161049.mlab.com:61049/practice-a
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(function(req, res, next) {
     if (req.headers['x-forwarded-proto'] == 'http') {
