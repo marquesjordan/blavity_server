@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import ArticleItem from './ArticleItem';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.props.fetchNewsArticles();
+    this.props.fetchSavedArticles();
     this.displayArticles = this.displayArticles.bind(this);
 
     this.state = {
@@ -15,29 +17,13 @@ class App extends Component {
   }
 
   displayArticles() {
-    if (this.props.news && this.props.news.articles) {
-      return this.props.news.articles.map(article => {
-        return (
-          <li key={article.url} className="list-group-item">
-            <img
-                className="img-thumbnail"
-                width={150}
+    const list = this.props.news.tab === 'articles' ? this.props.news.articles : this.props.news.groups; 
 
-                src={article.urlToImage}
-            />
-            <p className="font-weight-bold">{article.title}</p>
-            <div>{article.description}</div>
-            <p>
-              <a href={article.url}>{article.url}</a>
-            </p>
-            <div>
-              <button type="button" className="btn btn-secondary btn-sm">Save</button>
-            </div>
-          </li>
-        );
-      });
-    }
-
+    return list.map(article => {
+      return (
+        <ArticleItem key={article.url} article={article} />
+      );
+    });
   }
 
   render() {
@@ -60,7 +46,7 @@ class App extends Component {
                   <ul className="list-group list-group-flush">{this.displayArticles()}</ul>
                 </div>
                 <div className={this.props.news.tab === 'saved' ? "tab-pane fade show active" : "tab-pane fade"}  id="v-pills-saved" role="tabpanel" aria-labelledby="v-pills-saved-tab">
-                  ...
+                  <ul className="list-group list-group-flush">{this.displayArticles()}</ul>
                 </div>
               </div>
             </div>
@@ -72,7 +58,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
   return { news: state.news };
 }
 

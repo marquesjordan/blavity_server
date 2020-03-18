@@ -10,10 +10,13 @@ module.exports = app => {
     });
 
     app.post('/api/group', async (req, res) => {
+
         try {
             await new News({ 
-                groupName: req.body.name,
-                articles: req.body.articles
+                title: req.body.name,
+                description: req.body.articles,
+                urlToImage: req.body.urlToImage,
+                url: req.body.url
             }).save()
     
             const savedArticles = await News.find({})
