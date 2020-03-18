@@ -1,4 +1,3 @@
-// apiKEY = c8840f169ec844549128b2271e4674d3
 
 const express = require('express');
 const mongoose = require('mongoose');
