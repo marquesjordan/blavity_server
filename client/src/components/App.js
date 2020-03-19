@@ -18,8 +18,9 @@ class App extends Component {
 
   displayArticles() {
     const list = this.props.news.tab === 'articles' ? this.props.news.articles : this.props.news.groups; 
+    debugger;
 
-    return list.map(article => {
+    return [].concat(list).map(article => {
       return (
         <ArticleItem key={article.url} article={article} />
       );

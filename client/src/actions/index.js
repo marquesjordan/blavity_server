@@ -4,7 +4,7 @@ export const fetchSavedArticles = () => async dispatch => {
     try {
         const res = await axios.get('/api/groups');
 
-        dispatch({ type: 'SAVED_GROUP', payload: res.data});
+        dispatch({ type: 'SAVED_GROUP', payload: res.data.groups});
     } catch (error) {
         dispatch({ type: 'ERROR', payload: {errors: 'Fetching Saved Data Error.'}});
     }
@@ -14,7 +14,7 @@ export const saveArticle = (article) => async dispatch => {
     try {
         const res = await axios.post('/api/group', article);
 
-        dispatch({ type: 'SAVED_GROUP', payload: res.data});
+        dispatch({ type: 'SAVED_GROUP', payload: res.data.groups});
     } catch (error) {
         dispatch({ type: 'ERROR', payload: {errors: 'Fetching Saved Data Error.'}});
     }
