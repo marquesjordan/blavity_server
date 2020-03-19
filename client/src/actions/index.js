@@ -11,9 +11,9 @@ export const fetchSavedArticles = () => async dispatch => {
 }
 
 export const saveArticle = (article) => async dispatch => {
-    console.log(article)
+
     try {
-        const res = await axios.post('/api/group', article);
+        const res = await axios.post('http://blavity-server.herokuapp.com/api/group', article);
 
         dispatch({ type: 'SAVED_GROUP', payload: res.data.groups});
     } catch (error) {

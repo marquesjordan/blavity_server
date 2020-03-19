@@ -30,9 +30,6 @@ class App extends Component {
     return (
       <div>
         <div>
-          <h4>Articles</h4>
-        </div>
-        <div>
           <div className="row">
             <div className="col-3">
               <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
