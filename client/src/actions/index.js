@@ -11,6 +11,7 @@ export const fetchSavedArticles = () => async dispatch => {
 }
 
 export const saveArticle = (article) => async dispatch => {
+    console.log(article)
     try {
         const res = await axios.post('/api/group', article);
 

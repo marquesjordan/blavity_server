@@ -24,7 +24,7 @@ class ArticleItem extends Component {
                 <a href={article.url}>{article.url}</a>
                 </p>
                 <div>
-                <button onClick={(article) => this.props.saveArticle(article)} type="button" className="btn btn-secondary btn-sm">Save</button>
+                <button onClick={() => this.props.saveArticle(article)} type="button" className="btn btn-secondary btn-sm">Save</button>
                 </div>
             </li>
         )
