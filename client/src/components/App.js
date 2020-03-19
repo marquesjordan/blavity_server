@@ -18,11 +18,10 @@ class App extends Component {
 
   displayArticles() {
     const list = this.props.news.tab === 'articles' ? this.props.news.articles : this.props.news.groups; 
-    debugger;
 
-    return [].concat(list).map(article => {
+    return [].concat(list).map((article, index) => {
       return (
-        <ArticleItem key={article.url} article={article} />
+        <ArticleItem key={index} article={article} />
       );
     });
   }

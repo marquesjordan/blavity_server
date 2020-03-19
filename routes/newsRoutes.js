@@ -10,11 +10,10 @@ module.exports = app => {
     });
 
     app.post('/api/group', async (req, res) => {
-
         try {
             await new News({ 
-                title: req.body.name,
-                description: req.body.articles,
+                title: req.body.title,
+                description: req.body.description,
                 urlToImage: req.body.urlToImage,
                 url: req.body.url
             }).save()
