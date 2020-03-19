@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-require('./models/News');
+require('./models/Feed');
 
 mongoose.connect('mongodb://mblavity:blav1234@ds161049.mlab.com:61049/practice-app-mj');
 
